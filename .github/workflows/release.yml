@@ -36,20 +36,20 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Inject keystore
-        working-directory: android
-        env:
-          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          ALIAS: ${{ secrets.ALIAS }}
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-        run: |
-          echo storePassword=$KEY_STORE_PASSWORD > key.properties
-          echo keyPassword=$KEY_PASSWORD >> key.properties
-          echo keyAlias=$ALIAS >> key.properties
-          echo storeFile=$HOME/key.jks >> key.properties
+      # - name: Inject keystore
+      #   working-directory: android
+      #   env:
+      #     KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+      #     KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      #     ALIAS: ${{ secrets.ALIAS }}
+      #     SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+      #   run: |
+      #     echo storePassword=$KEY_STORE_PASSWORD > key.properties
+      #     echo keyPassword=$KEY_PASSWORD >> key.properties
+      #     echo keyAlias=$ALIAS >> key.properties
+      #     echo storeFile=$HOME/key.jks >> key.properties
 
-          echo $SIGNING_KEY | base64 -d | tee ~/key.jks >/dev/null
+      #     echo $SIGNING_KEY | base64 -d | tee ~/key.jks >/dev/null
 
       - name: Generate appbundle
         run: flutter build appbundle
@@ -142,7 +142,7 @@ jobs:
       - linux-build
       - windows-build
     runs-on: ubuntu-latest
-    if: github.repository == 'krawieck/lemmur'
+    # if: github.repository == 'krawieck/lemmur'
     steps:
       - uses: actions/download-artifact@v2
 
