@@ -1,4 +1,4 @@
-## Unreleased
+## v4.0.0 - 2021-03-10
 
 last time hopefully
 
