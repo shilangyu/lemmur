@@ -1,0 +1,4 @@
+### Fixed
+
+- Quote blocks in posts and comments are now much prettier
+- Code blocks nwo have monospace font. As they should
