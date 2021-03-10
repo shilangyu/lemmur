@@ -1,4 +1,4 @@
-## Unreleased
+## v2.0.0 - 2021-03-10
 
 whats up
 
